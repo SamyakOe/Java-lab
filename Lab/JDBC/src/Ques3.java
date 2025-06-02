@@ -62,17 +62,13 @@ public class Ques3 {
                     case 3:
                         System.out.println("Exiting the program...");
                         break;
-
                     default:
                         System.out.println("Invalid Entry");
                         break;
                 }
-
             } while (choice != 3);
-
             conn.close();
             input.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }

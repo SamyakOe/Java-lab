@@ -7,37 +7,36 @@ import java.util.Scanner;
 
 public class Question1 {
     public static void main(String[] args) {
-        Scanner input=new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter the Student's Name: ");
-        String name=input.nextLine();
-        int[] marks=new int[3];
-        for(int i=0; i<3;i++){
-            System.out.println("Enter Marks of Subject"+(i+1));
-            marks[i]=input.nextInt();
+        String name = input.nextLine();
+        int[] marks = new int[3];
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Enter Marks of Subject" + (i + 1));
+            marks[i] = input.nextInt();
         }
-        int total=0;
-        for(int mark:marks) total+=mark;
-        double percentage = total/3.0;
+        int total = 0;
+        for (int mark : marks)
+            total += mark;
+        double percentage = total / 3.0;
         try {
-            BufferedWriter writer= new BufferedWriter(new FileWriter("student.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("File/student.txt"));
             writer.write("Student's Details:\n");
-            writer.write("Name: "+name);
+            writer.write("Name: " + name);
             writer.newLine();
-            for(int i=0;i<3;i++){
-                writer.write("Marks in Subject"+(i+1)+": "+marks[i]);
+            for (int i = 0; i < 3; i++) {
+                writer.write("Marks in Subject" + (i + 1) + ": " + marks[i]);
                 writer.newLine();
             }
-            writer.write("Total Marks: "+total);
+            writer.write("Total Marks: " + total);
             writer.newLine();
-            writer.write("Percentage: "+percentage);
+            writer.write("Percentage: " + percentage);
             writer.close();
             System.out.println("Student info has been saved successfully to student.txt");
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file");
-        }
-        finally{
+        } finally {
             input.close();
         }
-        
     }
 }

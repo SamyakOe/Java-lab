@@ -32,7 +32,8 @@ public class Ques2 {
                         System.out.print("Enter the marks:");
                         int insertMarks = input.nextInt();
                         input.nextLine();
-                        PreparedStatement pstmt = conn.prepareStatement("INSERT INTO students (name, marks) VALUES(?, ?)");
+                        PreparedStatement pstmt = conn
+                                .prepareStatement("INSERT INTO students (name, marks) VALUES(?, ?)");
                         pstmt.setString(1, insertName);
                         pstmt.setInt(2, insertMarks);
                         int rows = pstmt.executeUpdate();
@@ -58,17 +59,13 @@ public class Ques2 {
                     case 3:
                         System.out.println("Exiting the program...");
                         break;
-
                     default:
                         System.out.println("Invalid Entry");
                         break;
                 }
-
             } while (choice != 3);
-
             conn.close();
             input.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }

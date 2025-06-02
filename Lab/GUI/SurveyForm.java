@@ -15,37 +15,30 @@ public class SurveyForm {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // Input Fields
         JLabel nameLabel = new JLabel("Name:");
         JTextField nameField = new JTextField(15);
-
         JLabel ageLabel = new JLabel("Age:");
         JTextField ageField = new JTextField(15);
-
         JLabel genderLabel = new JLabel("Gender:");
-        String[] genderOptions = {"Male", "Female", "Other"};
+        String[] genderOptions = { "Male", "Female", "Other" };
         JComboBox<String> genderBox = new JComboBox<>(genderOptions);
-
         JLabel feedbackLabel = new JLabel("Feedback:");
         JTextArea feedbackArea = new JTextArea(5, 15);
         feedbackArea.setLineWrap(true);
         feedbackArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(feedbackArea);
-
         JButton submitButton = new JButton("Submit");
 
-        // Set component max sizes for better layout
         nameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
         ageField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
         genderBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
         scrollPane.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));
 
-        // Center alignment
-        for (JComponent c : new JComponent[]{nameLabel, nameField, ageLabel, ageField, genderLabel, genderBox, feedbackLabel, scrollPane, submitButton}) {
+        for (JComponent c : new JComponent[] { nameLabel, nameField, ageLabel, ageField, genderLabel, genderBox,
+                feedbackLabel, scrollPane, submitButton }) {
             c.setAlignmentX(Component.CENTER_ALIGNMENT);
         }
 
-        // Add components to panel
         panel.add(nameLabel);
         panel.add(nameField);
         panel.add(Box.createVerticalStrut(10));
@@ -60,7 +53,6 @@ public class SurveyForm {
         panel.add(Box.createVerticalStrut(15));
         panel.add(submitButton);
 
-        // Button Action
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String name = nameField.getText();

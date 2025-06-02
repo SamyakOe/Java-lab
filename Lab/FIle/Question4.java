@@ -9,10 +9,10 @@ import java.io.IOException;
 public class Question4 {
     public static void main(String[] args) {
         try {
-            BufferedWriter writer=new BufferedWriter(new FileWriter("destination.txt"));
-            BufferedReader reader=new BufferedReader(new FileReader("student.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("File/destination.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("File/student.txt"));
             String line;
-            while((line=reader.readLine())!=null){
+            while ((line = reader.readLine()) != null) {
                 writer.write(line);
                 writer.newLine();
             }

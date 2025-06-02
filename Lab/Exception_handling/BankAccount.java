@@ -3,43 +3,45 @@ package Exception_handling;
 import java.util.Scanner;
 
 public class BankAccount {
-    private String accountNumber;
     private int balance;
-    public BankAccount(String accountNumber, int balance){
-        this.accountNumber=accountNumber;
-        this.balance=balance;
+
+    public BankAccount(int balance) {
+        this.balance = balance;
     }
-    public void withdraw(int amount) throws InsufficientFundException{
-        if(amount>balance){
+
+    public void withdraw(int amount) throws InsufficientFundException {
+        if (amount > balance) {
             throw new InsufficientFundException("Insufficient Balance in your account!");
-        }
-        else{
+        } else {
             System.out.println("Withdrawing...");
-            balance-=amount;
-            System.out.println("Your new balance: "+balance);
+            balance -= amount;
+            System.out.println("Your new balance: " + balance);
         }
     }
-    public void display(){
+
+    public void display() {
         System.out.println("\nAccount Details:");
-        System.out.println("Account Number: "+accountNumber);
-        System.out.println("Balance: "+balance);
+        System.out.println("Balance: " + balance);
+        System.out.println("------------------");
     }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        BankAccount newAccount= new BankAccount("123456789", 1200);
+        BankAccount newAccount = new BankAccount(1200);
+        newAccount.display();
         System.out.println("Enter the amount to be withdrawn:");
         int amount = input.nextInt();
         try {
             newAccount.withdraw(amount);
         } catch (InsufficientFundException e) {
-            System.out.println("Error: "+e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
-        newAccount.display();
         input.close();
     }
 }
-class InsufficientFundException extends Exception{
-    public InsufficientFundException(String message){
+
+class InsufficientFundException extends Exception {
+    public InsufficientFundException(String message) {
         super(message);
     }
 }

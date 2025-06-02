@@ -1,0 +1,7 @@
+Student's Details:
+Name: Samyak Dangol
+Marks in Subject1: 75
+Marks in Subject2: 47
+Marks in Subject3: 68
+Total Marks: 190
+Percentage: 63.333333333333336

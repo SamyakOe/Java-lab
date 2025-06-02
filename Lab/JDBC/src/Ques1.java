@@ -7,7 +7,6 @@ import java.sql.Statement;
 public class Ques1 {
     public static void main(String[] args) throws Exception {
         String url = "jdbc:mysql://localhost:3306/java";
-        ;
         String user = "test";
         String password = "password123";
         try {
